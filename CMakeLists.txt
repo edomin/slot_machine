@@ -48,6 +48,7 @@ list(APPEND SLT_SOURCES
     "${CMAKE_SOURCE_DIR}/src/audioplayer.cpp"
     "${CMAKE_SOURCE_DIR}/src/color.cpp"
     "${CMAKE_SOURCE_DIR}/src/draw.cpp"
+    "${CMAKE_SOURCE_DIR}/src/game/res_keeper.cpp"
     "${CMAKE_SOURCE_DIR}/src/main.cpp"
     "${CMAKE_SOURCE_DIR}/src/mouse.cpp"
     "${CMAKE_SOURCE_DIR}/src/point.cpp"
