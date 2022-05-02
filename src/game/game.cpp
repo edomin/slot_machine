@@ -1,20 +1,23 @@
 #include "game/game.hpp"
 
-namespace {
-    const unsigned WINDOW_WIDTH = 200;
-    const unsigned WINDOW_HEIGHT = 150;
-    const bool WINDOW_FULLSCREEN = false;
-    const std::string WINDOW_TITLE = "Slot Machine";
-}
+#include <iostream>
 
 namespace game {
 
 Game::Game()
-: window(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_FULLSCREEN, WINDOW_TITLE)
-, timer()
-, draw(window)
-, audioplayer()
-, mouse(window)
-, res_keeper() {}
+: ctx()
+, state_machine(&ctx) {}
+
+void Game::main_loop() {
+    float delta = 0.0;
+
+    while (!ctx.window.closed()) {
+        ctx.mouse.update();
+        state_machine.update(delta);
+        state_machine.render();
+        ctx.window.update();
+        delta = ctx.timer.update();
+    }
+}
 
 } /* game:: */

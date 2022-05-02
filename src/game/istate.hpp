@@ -7,8 +7,8 @@ class IState {
     public:
         virtual ~IState();
 
-        virtual void update() = 0;
-        virtual void draw() = 0;
+        virtual bool update(float delta) = 0;
+        virtual void render() = 0;
 };
 
 } /* game:: */

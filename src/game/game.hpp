@@ -1,26 +1,20 @@
 #ifndef SRC_GAME_GAME_HPP
 #define SRC_GAME_GAME_HPP
 
-#include "audioplayer.hpp"
-#include "game/res_keeper.hpp"
-#include "draw.hpp"
-#include "mouse.hpp"
-#include "timer.hpp"
-#include "window.hpp"
+#include "game/ctx.hpp"
+#include "game/state_machine.hpp"
 
 namespace game {
 
 class Game {
     private:
-        Window      window;
-        Timer       timer;
-        Draw        draw;
-        Audioplayer audioplayer;
-        Mouse       mouse;
-        ResKeeper   res_keeper;
+        Ctx          ctx;
+        StateMachine state_machine;
 
     public:
         Game();
+
+        void main_loop();
 };
 
 } /* game:: */
