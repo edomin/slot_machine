@@ -17,7 +17,8 @@ StateMachine::StateMachine(Ctx *ctx)
 }
 
 StateMachine::~StateMachine() {
-
+    for (IState *state : states)
+        delete state;
 }
 
 void StateMachine::update(float delta) {
